@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/gh/Jeff-Aporta/front-shared@a5a6597/cdn/base-href.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scrum — Jeff-Aporta</title>
+  <meta name="description" content="Tableros SCRUM estilo Trello: tareas, subtareas, hitos y trazabilidad." />
+  <meta name="keywords" content="scrum, kanban, tablero, tareas, Jeff-Aporta" />
+  <meta name="application-name" content="Scrum" />
+  <meta name="theme-color" content="#00897b" />
+  <meta name="app-theme-ls-key" content="scrum:theme" />
+  <meta name="app-icon" content="mdi:view-column" />
+  <link rel="canonical" href="https://jeff-aporta.github.io/scrum-front/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="Jeff-Aporta — Scrum" />
+  <meta property="og:title" content="Scrum — Jeff-Aporta" />
+  <meta property="og:description" content="Tableros SCRUM estilo Trello: tareas, subtareas, hitos y trazabilidad." />
+  <meta property="og:url" content="https://jeff-aporta.github.io/scrum-front/" />
+  <meta property="og:image" content="https://api.iconify.design/mdi/view-column.svg?color=%2300897b&width=512&height=512" />
+  <link rel="icon" href="https://api.iconify.design/mdi/view-column.svg?color=%2300897b&width=32&height=32" type="image/svg+xml" />
+  <script>
+    (function () {
+      var k = "scrum:theme";
+      var m = "dark";
+      try {
+        var v = localStorage.getItem(k);
+        if (v === "light" || v === "dark") m = v;
+      } catch (e) { /* ignore */ }
+      document.documentElement.setAttribute("data-mui-color-scheme", m);
+      document.documentElement.style.colorScheme = m;
+    })();
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Jeff-Aporta/front-shared@a5a6597/cdn/isa/css/base.css" />
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+    "@emotion/react": "https://esm.sh/@emotion/react@11.14.0?external=react,react-dom",
+    "@emotion/styled": "https://esm.sh/@emotion/styled@11.14.1?external=react,react-dom,@emotion/react",
+    "@mui/material": "https://esm.sh/@mui/material@9.1.0?external=react,react-dom,@emotion/react,@emotion/styled",
+    "@mui/material/": "https://esm.sh/@mui/material@9.1.0/"
+  }
+}
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.9/babel.min.js"></script>
+  <script defer src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+  <script defer>
+    (async function () {
+      try {
+        function waitBabel(maxMs) {
+          return new Promise(function (resolve, reject) {
+            var t0 = Date.now();
+            (function poll() {
+              if (window.Babel && typeof Babel.transform === "function") return resolve(Babel);
+              if (Date.now() - t0 > maxMs) return reject(new Error("Babel no cargó."));
+              setTimeout(poll, 40);
+            })();
+          });
+        }
+        await waitBabel(20000);
+        if (new URLSearchParams(location.search).has("isa_boot_hold")) return;
+        var res = await fetch("js/boot/loader.ts", { cache: "no-store" });
+        if (!res.ok) throw new Error("No se pudo cargar el loader (" + res.status + ")");
+        var out = Babel.transform(await res.text(), { presets: ["typescript"], filename: "loader.ts" }).code;
+        eval(out);
+      } catch (e) {
+        document.getElementById("root").innerHTML =
+          '<pre style="color:#ff8a80;padding:24px;font-family:monospace">Bootstrap error:\n' + (e && e.stack ? e.stack : e) + "</pre>";
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <style>
+      html { color-scheme: dark; background: #060d18; }
+      html[data-mui-color-scheme="light"] { color-scheme: light; background: #eef4ff; }
+      body { margin: 0; height: 100%; background: inherit; }
+      #root { height: 100%; min-height: 100vh; }
+      .isa-app-boot {
+        height: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        font-family: "IBM Plex Sans", system-ui, sans-serif; background: #060d18; color: #94a3b8;
+      }
+    </style>
+    <div class="isa-app-boot">
+      <iconify-icon icon="mdi:view-column" width="1.5em" height="1.5em"></iconify-icon>
+      <span style="margin-left:0.75rem;font-weight:500">Cargando Scrum…</span>
+    </div>
+  </div>
+</body>
+
+</html>

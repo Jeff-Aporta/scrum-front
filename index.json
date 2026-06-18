@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "title": "Scrum — Jeff-Aporta",
+    "applicationName": "Scrum",
+    "description": "Tableros SCRUM estilo Trello: tareas, subtareas, hitos y trazabilidad.",
+    "keywords": "scrum, kanban, tablero, tareas, Jeff-Aporta",
+    "themeColor": "#00897b",
+    "themeLsKey": "scrum:theme",
+    "icon": "mdi:view-column",
+    "canonical": "https://jeff-aporta.github.io/scrum-front/",
+    "ogSiteName": "Jeff-Aporta — Scrum",
+    "ogTitle": "Scrum — Jeff-Aporta",
+    "imageAlt": "Scrum — tableros y tareas"
+  },
+  "styles": ["fonts-google", "shared-base"],
+  "libs": []
+}
