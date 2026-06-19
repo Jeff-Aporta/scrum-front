@@ -7,6 +7,21 @@
     if (window.SCRUM?.UI?.toast) window.SCRUM.UI.toast(msg);
   }
 
+  function normalizeBoardData(data) {
+    if (!data || !data.columns) return data;
+    var inProgress = data.columns.find(function (c) { return c.columnKey === "in_progress"; });
+    if (!inProgress) return data;
+    var pending = data.columns.find(function (c) { return c.columnKey === "pending"; });
+    var fallbackId = pending ? pending.id : null;
+    var columns = data.columns.filter(function (c) { return c.columnKey !== "in_progress"; });
+    var tasks = fallbackId
+      ? data.tasks.map(function (t) {
+        return t.columnId === inProgress.id ? Object.assign({}, t, { columnId: fallbackId }) : t;
+      })
+      : data.tasks;
+    return { board: data.board, columns: columns, tasks: tasks };
+  }
+
   window.SCRUM = window.SCRUM || {};
   window.SCRUM.useScrumBoard = function useScrumBoard() {
     const [loggedIn, setLoggedIn] = useState(window.SCRUM.Auth.isLoggedIn());
@@ -49,7 +64,7 @@
       setError("");
       try {
         const data = await window.SCRUM.Api.getBoard(id);
-        setBoardData({ board: data.board, columns: data.columns, tasks: data.tasks });
+        setBoardData(normalizeBoardData({ board: data.board, columns: data.columns, tasks: data.tasks }));
       } catch (e) {
         setError(e instanceof Error ? e.message : String(e));
         setBoardData(null);
