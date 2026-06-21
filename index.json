@@ -13,5 +13,15 @@
     "imageAlt": "Scrum — tableros y tareas"
   },
   "styles": ["fonts-google", "shared-base"],
-  "libs": []
+  "libs": [],
+  "readme": {
+    "tagline": "tableros SCRUM estilo Trello con tareas, subtareas e hitos.",
+    "badges": ["github-pages", "react"],
+    "features": [
+      "**Tableros** estilo Trello con columnas y tarjetas",
+      "**Tareas y subtareas** con trazabilidad",
+      "**Hitos** y seguimiento de avance",
+      "API vía main-orchestrator → worker `scrum` (`/api/scrum/*`)"
+    ]
+  }
 }
